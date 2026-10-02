@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LearnTrack | Organiza tu vida y aprende mejor</title>
+    <meta name="description" content="LearnTrack es una plataforma para organizar tus tareas, planificar tu tiempo de estudio y mantener el equilibrio con ayuda de un asistente interactivo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#" id="nav-brand">LearnTrack</a>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#" class="nav-link active" id="nav-inicio">Inicio</a></li>
+                    <li><a href="#" class="nav-link" id="nav-planificador">Planificador</a></li>
+                    <li><a href="#servicios" class="nav-link-landing">Servicios</a></li>
+                    <li><a href="#contacto" class="nav-link-landing">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="vista-landing">
+        <main id="contenido">
+            <section id="hero" aria-labelledby="hero-titulo">
+                <div class="hero-content">
+                    <h1 id="hero-titulo">Organiza tu vida, aprende mejor y mantén el equilibrio</h1>
+                    <p>Planifica tus estudios, tareas y tiempo libre en un solo lugar, con un asistente que te acompaña cada día.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-abrir-app">Probar ahora</button>
+                        <a class="btn btn-secondary" href="#contacto">Escríbenos</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="servicios" aria-labelledby="servicios-titulo">
+                <h2 id="servicios-titulo">Productos y servicios</h2>
+                <p class="section-intro">Dos herramientas pensadas para que estudies con orden y no descuides tu bienestar.</p>
+
+                <div class="cards">
+                    <article>
+                        <img src="images/planificador.png" alt="Calendario semanal" width="1536" height="1024" loading="lazy">
+                        <h3>Planificador inteligente</h3>
+                        <p>Organiza tu semana en un calendario interactivo: estudio, proyectos, ejercicio y descanso en el mismo lugar.</p>
+                        <button class="btn btn-abrir-app">Probar ahora</button>
+                    </article>
+
+                    <article>
+                        <img src="images/asistente.png" alt="Robot asistente" width="1536" height="1024" loading="lazy">
+                        <h3>Asistente con IA</h3>
+                        <p>Recibe recomendaciones personalizadas y apoyo diario para cumplir tus actividades sin agobiarte.</p>
+                        <button class="btn btn-abrir-app">Descubrir más</button>
+                    </article>
+                </div>
+            </section>
+
+            <section id="contacto" aria-labelledby="contacto-titulo">
+                <h2 id="contacto-titulo">Contáctanos</h2>
+                <p class="section-intro">¿Quieres probar LearnTrack o colaborar con el proyecto? Cuéntanos.</p>
+
+                <form id="form-contacto" novalidate>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" required>
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                    <button type="submit" class="btn">Enviar mensaje</button>
+                    <p id="form-estado" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <div id="vista-app" class="oculto">
+        <main class="dashboard-container">
+            <section class="card monitor-section">
+                <h2>🔋 Monitor de Carga Mental</h2>
+                
+                <div class="mood-selector">
+                    <label for="select-animo">¿Cómo te sientes hoy?</label>
+                    <select id="select-animo">
+                        <option value="alto">Con mucha energía ⚡</option>
+                        <option value="medio" selected>Normal / Estándar 🙂</option>
+                        <option value="bajo">Cansado / Saturado 😴</option>
+                    </select>
+                </div>
+
+                <div class="indicador-bateria">
+                    <div class="bateria-header">
+                        <span>Nivel de Carga Diaria</span>
+                        <strong id="porcentaje-carga">0%</strong>
+                    </div>
+                    <div class="barra-base">
+                        <div id="barra-progreso-carga" class="barra-nivel"></div>
+                    </div>
+                    <p id="estado-mensaje" class="estado-tag">Cargando estado...</p>
+                </div>
+
+                <div class="asistente-ia-box">
+                    <h3>🤖 Asistente LearnTrack</h3>
+                    <p id="consejo-ia">Añade tus actividades del día para recibir sugerencias de descanso y estudio.</p>
+                </div>
+
+                <div class="historial-box">
+                    <h3>📊 Historial de Carga Reciente</h3>
+                    <div id="resumen-semanal">Cargando historial...</div>
+                </div>
+            </section>
+
+            <section class="card agenda-section">
+                <h2>📅 Planificador Diario</h2>
+                
+                <form id="form-actividad">
+                    <div class="form-group">
+                        <input type="text" id="input-titulo" placeholder="Ej: Parcial de Redes, Jugar FIFA, Clases..." maxlength="100" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <select id="select-tipo" required>
+                            <option value="estudio">📚 Estudio / Clases</option>
+                            <option value="trabajo">💼 Trabajo / Proyectos</option>
+                            <option value="ocio">🎮 Ocio / Videojuegos</option>
+                            <option value="deporte">🏃 Deporte / Ejercicio</option>
+                        </select>
+
+                        <select id="select-exigencia" required>
+                            <option value="3">Alta exigencia</option>
+                            <option value="2" selected>Exigencia media</option>
+                            <option value="1">Baja exigencia</option>
+                            <option value="-2">Recarga de energía</option>
+                        </select>
+
+                        <input type="number" id="input-horas" placeholder="Horas" min="0.5" max="12" step="0.5" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-principal">+ Agregar a mi jornada</button>
+                </form>
+
+                <div class="lista-contenedor">
+                    <h3>Actividades de Hoy</h3>
+                    <ul id="lista-actividades"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 LearnTrack. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
